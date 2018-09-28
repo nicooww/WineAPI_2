@@ -12,7 +12,10 @@ class HelloWorld(Resource):
         return {'hello': 'world'}
 
     def post(self):
-        #barcode = request.form['code']
+        parser = reqparse.RequestParser()
+        parser.add_argument('code')
+        args = parser.parse_args(strict=True)
+        print args
         return {'codeReceived': 'ok'}
 
 api.add_resource(HelloWorld, '/')

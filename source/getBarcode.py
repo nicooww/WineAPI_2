@@ -7,10 +7,13 @@ def processBarcode(barcode):
     h = Http()
     data = dict(code=barcode)
     print data
-    resp, content = h.request(url,"POST", urlencode(data))
-    print resp['status']
-    print content
-    print barcode
+    try:
+        resp, content = h.request(url,"POST", urlencode(data))
+        print resp['status']
+        print content
+    except:
+        print("Unable to reach the target")
+        
 
 # find our device
 dev = usb.core.find(idVendor=0x13ba, idProduct=0x0018)
