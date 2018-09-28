@@ -1,6 +1,15 @@
 import usb.core
+from httplib2 import Http
+from urllib import urlencode
 
 def processBarcode(barcode):
+    url = 'http://127.0.0.1:5000'
+    h = Http()
+    data = dict(code=barcode)
+    print data
+    resp, content = h.request(url,"POST", urlencode(data))
+    print resp['status']
+    print content
     print barcode
 
 # find our device

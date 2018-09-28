@@ -1,8 +1,8 @@
 #! /usr/bin/python
 # -*- coding:utf-8 -*-
 
-from flask import Flask
-from flask_restful import Resource, Api
+from flask import Flask, request
+from flask_restful import reqparse, Resource, Api
 
 app = Flask(__name__)
 api = Api(app)
@@ -10,6 +10,10 @@ api = Api(app)
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
+
+    def post(self):
+        #barcode = request.form['code']
+        return {'codeReceived': 'ok'}
 
 api.add_resource(HelloWorld, '/')
 
