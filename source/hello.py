@@ -15,7 +15,7 @@ class HelloWorld(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('code')
         args = parser.parse_args(strict=True)
-        print args
+        print (args)
         return {'codeReceived': 'ok'}
 
 api.add_resource(HelloWorld, '/')

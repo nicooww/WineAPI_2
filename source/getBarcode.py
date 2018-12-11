@@ -1,16 +1,16 @@
 import usb.core
 from httplib2 import Http
-from urllib import urlencode
+import urllib
 
 def processBarcode(barcode):
     url = 'http://127.0.0.1:5000'
     h = Http()
     data = dict(code=barcode)
-    print data
+    print(data)
     try:
         resp, content = h.request(url,"POST", urlencode(data))
-        print resp['status']
-        print content
+        print (resp['status'])
+        print (content)
     except:
         print("Unable to reach the target")
         
@@ -20,9 +20,9 @@ dev = usb.core.find(idVendor=0x13ba, idProduct=0x0018)
 
 # was it found?
 if dev is None:
-    print 'Device not found'
+    print ('Device not found')
 else:
-    print 'Device found'
+    print ('Device found')
 
 # first endpoint
 interface = 0
