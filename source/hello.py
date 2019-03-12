@@ -9,7 +9,7 @@ api = Api(app)
 
 class HelloWorld(Resource):
     def get(self):
-        return {'hello': 'world'}
+        return {'helle': 'werld'}
 
     def post(self):
         parser = reqparse.RequestParser()
